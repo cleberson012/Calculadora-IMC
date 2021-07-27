@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+    <div>
+        <h1>Calculadora IMC</h1>
+        
+        <main>
+            <p>Nome:</p>       <input name="nome"       id="name">
+            <p>Idade:</p>      <input type="number"     id="idade">
+            <p>Sexo:</p>       <input type="text"       id="sexo">
+            <p>Altura:</p>     <input type="number"     id="altura">
+            <p>Peso:</p>       <input type="number"     id="peso">
+        </main>
+        
+        <span class="box">
+            <button onclick="somar()" 
+             style="background: #ffebcd;
+            border: 4px solid #a09d9dbe;
+            border-radius: 18px;
+            cursor:pointer;
+            font-family:monospace;
+            font-weight:bold;
+            font-size:13px;
+            padding: 9px 34px;
+            ">
+            Calcular</button>
+        </span>
+        
+        <textarea onmouseenter="entrar()" style="font-family: monospace;
+        font-size: 17px;" name="" id="resposta" cols="23" rows="7"></textarea>
+    
+           <script>
+               function somar(){
+                   var nome = document.querySelector('input#name')
+                   var n = String(nome.value)
+
+                   var numero1 = document.querySelector('input#altura')
+                   var n1 = Number(numero1.value)
+
+                   var idade = document.querySelector('input#idade')
+                   var i = Number(idade.value)
+
+                   var sexo = document.querySelector('input#sexo')
+                   var sex = String(sexo.value)
+
+                   var numero2 = document.querySelector('input#peso')
+                   var n2 = Number(numero2.value)
+
+                   var s = n2 / (n1*n1) *10000
+
+                   var res = document.querySelector('textarea#resposta')
+                   
+
+                res.innerHTML = `Olá, ${n} parabens pelos ${i} anos, o seu peso é de ${n2}kg e a sua altura é de ${n1}m`
+
+                res. innerHTML += `. Seu sexo é: ${sex}...`
+                  
+                
+               }
+
+               function entrar(){
+                var numero1 = document.querySelector('input#altura')
+                   var n1 = Number(numero1.value)
+
+                   var numero2 = document.querySelector('input#peso')
+                   var n2 = Number(numero2.value)
+
+                   var s = n2 / (n1*n1) *10000
+
+                   var res = document.querySelector('textarea#resposta')
+
+                   if (s <= 18) {
+                    res.innerText = `Você esta ABAIXO do peso. Alimentaçao e esencial!!!`
+                   } 
+                   if (s >18 ){
+                       res.innerText = `Você esta em OTIMA forma!!!`
+                   }
+                   if (s >24 ){
+                       res.innerText = `Você esta ACIMA do peso. Cuidado!!!`
+                   }
+                   if (s >30){
+                       res.innerText = `Você esta OBESO. Procure um medico!!!`
+                   }
+
+               }
+
+
+           </script>
+        
+        
+    </div>
+
+</body>
+</html>
